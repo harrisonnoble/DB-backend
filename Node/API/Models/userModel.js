@@ -3,16 +3,18 @@
 var sql = require('./db.js');
 
 var User = function(user) {
-  this.username = user.username;
-  this.email = user.email;
-  this.f_name = user.f_name;
-  this.l_name = user.l_name;
-  this.pass = user.pass;
-  this.phone = user.phone;
+  this.username = user.username,
+  this.email = user.email,
+  this.f_name = user.f_name,
+  this.l_name = user.l_name,
+  this.pass = user.pass,
+  this.phone = user.phone,
+  this.weight = user.weight,
+  this.height = user.height
 };
 
 User.createUser = function(newUse, result) {
-  sql.query("INSERT INTO `DatabaseProject`.`Users` (`username`,`email`,`f_name`,`l_name`,`pass`,`phone`) VALUES ('" + newUse.username + "', '" + newUse.email + "', '" + newUse.f_name + "', '" + newUse.l_name + "', '" + newUse.pass + "', " + newUse.phone + ");",
+  sql.query("INSERT INTO `DatabaseProject`.`Users` (`username`,`email`,`f_name`,`l_name`,`pass`,`phone`,`height`,`weight`) VALUES ('" + newUse.username + "', '" + newUse.email + "', '" + newUse.f_name + "', '" + newUse.l_name + "', '" + newUse.pass + "', " + newUse.phone + ", " + newUse.height + ", " + newUse.weight + ");",
     function(err, res) {
       if (err){
         result(err, null);

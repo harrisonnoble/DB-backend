@@ -10,7 +10,7 @@ exports.add_mealplan = function(req, res){
     });
   }
   var new_mealplan = new MealPlan(req.body);
-  if (!new_mealplan.calories) {
+  if (!new_mealplan.name || !new_mealplan.calories || !new_mealplan.details) {
     res.status(400).json({
       "code": 400,
       "response":"Please provide input for all fields."

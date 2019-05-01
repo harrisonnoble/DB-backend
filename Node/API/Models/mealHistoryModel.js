@@ -5,12 +5,13 @@ var sql = require('./db.js');
 //mealHistory object constructor
 var mealHistory = function(mealHistory){
 	this.user_id = mealHistory.user_id,
-	this.calories = mealHistory.calories
+	this.calories = mealHistory.calories,
+	this.name = mealHistory.name
 };
 
 //Create new meal
 mealHistory.addMeal = function(id, newMeal, result){
-	sql.query("INSERT INTO `DatabaseProject`.`mealHistory` (`user_id`,`calories`, `meal_date`) VALUES ('" + id +  "', " + newMeal.calories + ", now() );",
+	sql.query("INSERT INTO `DatabaseProject`.`mealHistory` (`user_id`,`calories`, `name`, `meal_date`) VALUES (" + id +  ", " + newMeal.calories + ",'" + newMeal.name + "', now() );",
 		function(err, res){
 			if(err){
 				result(err, null);
