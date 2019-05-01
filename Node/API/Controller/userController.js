@@ -4,7 +4,7 @@ var User = require('../Models/userModel.js');
 
 exports.create_user = function(req, res){
   var new_user = new User(req.body);
-  if (!new_user.email || !new_user.pass || !new_user.f_name || !new_user.l_name || !new_user.username || !new_user.height || !new_user.weight) {
+  if (!new_user.email || !new_user.pass || !new_user.f_name || !new_user.l_name || !new_user.username || !new_user.height || !new_user.weight || !new_user.age) {
     res.status(400).json({
       "code": 400,
       "response":"Please provide input for all fields."

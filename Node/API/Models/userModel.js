@@ -10,11 +10,12 @@ var User = function(user) {
   this.pass = user.pass,
   this.phone = user.phone,
   this.weight = user.weight,
-  this.height = user.height
+  this.height = user.height,
+  this.age = user.age
 };
 
 User.createUser = function(newUse, result) {
-  sql.query("INSERT INTO `DatabaseProject`.`Users` (`username`,`email`,`f_name`,`l_name`,`pass`,`phone`,`height`,`weight`) VALUES ('" + newUse.username + "', '" + newUse.email + "', '" + newUse.f_name + "', '" + newUse.l_name + "', '" + newUse.pass + "', " + newUse.phone + ", " + newUse.height + ", " + newUse.weight + ");",
+  sql.query("INSERT INTO `DatabaseProject`.`Users` (`username`,`email`,`f_name`,`l_name`,`pass`,`phone`,`height`,`weight`, `age`) VALUES ('" + newUse.username + "', '" + newUse.email + "', '" + newUse.f_name + "', '" + newUse.l_name + "', '" + newUse.pass + "', " + newUse.phone + ", " + newUse.height + ", " + newUse.weight + ", " + newUse.age + ");",
     function(err, res) {
       if (err){
         result(err, null);
